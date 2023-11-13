@@ -57,4 +57,3 @@ while True:
         for i in errors:
             print(i)
     
-a = "aaaaaaaa"
