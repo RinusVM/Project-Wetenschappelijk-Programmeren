@@ -84,11 +84,11 @@ def berekenIDnummer(bitstring):
         wittestring = bitstring[1::2] #alle b/s'en met oneven indexen
         
         getal = "ssbbsbsssbsbssbbbsssssbsbbsbsssbbsssssbbbssbssbsbs"
-        for i in range(0, len(getal)):
+        for i in range(len(getal)):
             if zwartestring == getal[i*5:i*5+5]:
                 kar1 = i
         
-        for i in range(0,len(getal)-4):
+        for i in range(len(getal)):
             if wittestring == getal[i*5:i*5+5]:
                 kar2 = i
       
