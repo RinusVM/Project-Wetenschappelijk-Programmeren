@@ -6,10 +6,10 @@ Academiejaar 2023-2024
 
 Vul deze template aan (en dien deze in via Ufora)
 
-Groepsleden:    Groepslid 1: .......
-                Groepslid 2: .......
-                Groepslid 3: .......
-                Groepslid 4: .......
+Groepsleden:    Groepslid 1: Ghita Alexander
+                Groepslid 2: Vandekerckhove Laurika
+                Groepslid 3: Van Massenhove Rinus 
+                Groepslid 4: Vranken Katelijne
 
 """
 import infoFun
@@ -54,23 +54,6 @@ def isGeldig(bitstring):
             errors.append("Het aantal opeenvolgende 0'en en 1's is groter dan twee.")
     return geldig
 
-# test code
-controle1  = isGeldig("1010110100100101101101") # geldige bitstring
-print(controle1)
-
-controle2  = isGeldig("10101101001001XX101101") # ongeldige karakters
-print(controle2)
-
-controle3  = isGeldig("1010110111100101101101") # "1" komt meer dan 2 keer voor
-print(controle3)
-
-controle4  = isGeldig("1101110100100101101010") # start/eindsymbool verkeerd
-print(controle4)
-
-controle5  = isGeldig("10101101001011010110101101") # geen veelvoud van 14
-print(controle5)
-
-
 def berekenIDnummer(bitstring):
     if isGeldig(bitstring):
         bitstring = bitstring[4:-4] 
@@ -82,27 +65,48 @@ def berekenIDnummer(bitstring):
         
         zwartestring = bitstring[::2] #alle b/s'en met even indexen
         wittestring = bitstring[1::2] #alle b/s'en met oneven indexen
-        
+        barcode = ""
         getal = "ssbbsbsssbsbssbbbsssssbsbbsbsssbbsssssbbbssbssbsbs"
-        for i in range(len(getal)):
-            if zwartestring == getal[i*5:i*5+5]:
-                kar1 = i
+        for j in range(int(len(zwartestring)/5)):
+            for i in range(50):
+                if zwartestring[j*5:j*5+5] == getal[i*5:i*5+5]:
+                    kar1 = i
+                    barcode += str(kar1)
         
-        for i in range(len(getal)):
-            if wittestring == getal[i*5:i*5+5]:
-                kar2 = i
+            for i in range(50):
+                if wittestring[j*5:j*5+5] == getal[i*5:i*5+5]:
+                    kar2 = i
+                    barcode += str(kar2)
       
-        ID = str(kar1) + str(kar2)
-        return ID
+        return barcode
 
 # test code
-ID = berekenIDnummer("1010110100100101101101")
-print(ID) # '16'
+#ID = berekenIDnummer("1010110100100101101101")
+#print(ID) # '16'
+
+# test code
+controle1  = isGeldig("1010110100100101101101") # geldige bitstring
+#print(controle1)
+
+controle2  = isGeldig("10101101001001XX101101") # ongeldige karakters
+#print(controle2)
+
+controle3  = isGeldig("1010110111100101101101") # "1" komt meer dan 2 keer voor
+#print(controle3)
+
+controle4  = isGeldig("1101110100100101101010") # start/eindsymbool verkeerd
+#print(controle4)
+
+controle5  = isGeldig("10101101001011010110101101") # geen veelvoud van 14
+#print(controle5)
 
 barcode1 = "1010110101001101001011010010011011001010101100100110101011001011010110010010100101101100101010011001101101"
 barcode2 = "1010110100101011001010011001011010110010100110101101011001001100110101001011001011001010110101101001001101"
 barcode3 = "1010110011010010101001101010011010110110010010101101001001101100101011010011010010010110100110101011001101"
-#ID1 = berekenIDnummer(barcode1) # '84201121977270'
-#ID2 = berekenIDnummer(barcode2) # '12462997385557'
-#ID3 = berekenIDnummer(barcode3) # '35286020811621'
+ID1 = berekenIDnummer(barcode1) # '84201121977270'
+ID2 = berekenIDnummer(barcode2) # '12462997385557'
+ID3 = berekenIDnummer(barcode3) # '35286020811621'
+#print(ID1)
+#print(ID2)
+#print(ID3)
 
