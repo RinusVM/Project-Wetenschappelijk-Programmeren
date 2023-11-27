@@ -80,6 +80,52 @@ def berekenIDnummer(bitstring):
       
         return barcode
 
+aankopen = infoFun.listRead("C:\WetenschappelijkProgrammeren\Project\Project-Wetenschappelijk-Programmeren-1/aankopen.txt")
+prijslijst = infoFun.listRead("C:\WetenschappelijkProgrammeren\Project\Project-Wetenschappelijk-Programmeren-1/prijslijst.txt")
+
+aankopenlijst = []
+totaalprijs = 0
+lijst = []
+
+for i in aankopen: 
+    ID = berekenIDnummer(i)
+    aankopenlijst = aankopenlijst + [ID]
+
+for i in prijslijst: 
+    strpl = str(i)
+    splitsen = strpl.split(" ")
+    lijst.append(splitsen)
+
+for i in range(len(lijst)):
+    for j in aankopenlijst:
+        if lijst[i][0] == j:
+            totaalprijs = totaalprijs + float(lijst[i][1])       
+            
+print(totaalprijs)
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+   
+    
+
+
+
+
+
+
+
 # test code
 #ID = berekenIDnummer("1010110100100101101101")
 #print(ID) # '16'
