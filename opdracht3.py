@@ -17,7 +17,7 @@ import infoFun
 ########################################################
 #%% Opdracht 3. functie berekenIDnummer()
 ########################################################
-# hier komt het antwoord op opdracht 5
+# hier komt het antwoord op opdracht 3
 
 def isGeldig(bitstring):
     geldig = True
@@ -102,57 +102,3 @@ for i in range(len(lijst)):
             totaalprijs = totaalprijs + float(lijst[i][1])       
             
 print(totaalprijs)
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-
-
-   
-    
-
-
-
-
-
-
-
-# test code
-#ID = berekenIDnummer("1010110100100101101101")
-#print(ID) # '16'
-
-# test code
-controle1  = isGeldig("1010110100100101101101") # geldige bitstring
-#print(controle1)
-
-controle2  = isGeldig("10101101001001XX101101") # ongeldige karakters
-#print(controle2)
-
-controle3  = isGeldig("1010110111100101101101") # "1" komt meer dan 2 keer voor
-#print(controle3)
-
-controle4  = isGeldig("1101110100100101101010") # start/eindsymbool verkeerd
-#print(controle4)
-
-controle5  = isGeldig("10101101001011010110101101") # geen veelvoud van 14
-#print(controle5)
-
-barcode1 = "1010110101001101001011010010011011001010101100100110101011001011010110010010100101101100101010011001101101"
-barcode2 = "1010110100101011001010011001011010110010100110101101011001001100110101001011001011001010110101101001001101"
-barcode3 = "1010110011010010101001101010011010110110010010101101001001101100101011010011010010010110100110101011001101"
-ID1 = berekenIDnummer(barcode1) # '84201121977270'
-ID2 = berekenIDnummer(barcode2) # '12462997385557'
-ID3 = berekenIDnummer(barcode3) # '35286020811621'
-#print(ID1)
-#print(ID2)
-#print(ID3)
-
