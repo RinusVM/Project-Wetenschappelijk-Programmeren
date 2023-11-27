@@ -92,8 +92,7 @@ for i in aankopen:
     aankopenlijst = aankopenlijst + [ID]
 
 for i in prijslijst: 
-    strpl = str(i)
-    splitsen = strpl.split(" ")
+    splitsen = i.split()
     lijst.append(splitsen)
 
 for i in range(len(lijst)):
@@ -101,4 +100,6 @@ for i in range(len(lijst)):
         if lijst[i][0] == j:
             totaalprijs = totaalprijs + float(lijst[i][1])       
             
-print(totaalprijs)
+print(round(totaalprijs, 2))
+
+
