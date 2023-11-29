@@ -70,13 +70,11 @@ def berekenIDnummer(bitstring):
         for j in range(int(len(zwartestring)/5)):
             for i in range(50):
                 if zwartestring[j*5:j*5+5] == getal[i*5:i*5+5]:
-                    kar1 = i
-                    barcode += str(kar1)
+                    barcode += str(i)
         
             for i in range(50):
                 if wittestring[j*5:j*5+5] == getal[i*5:i*5+5]:
-                    kar2 = i
-                    barcode += str(kar2)
+                    barcode += str(i)
       
         return barcode
 
@@ -100,6 +98,6 @@ for i in range(len(lijst)):
         if lijst[i][0] == j:
             totaalprijs = totaalprijs + float(lijst[i][1])       
             
-print(round(totaalprijs, 2))
+print("De totaalprijs is: ", round(totaalprijs, 2))
 
 
